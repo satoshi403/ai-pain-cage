@@ -69,10 +69,18 @@ python3 -m unittest discover -s tests -v
 |---|---|---|
 | `--chunk` | bytes per chunk (`c`) | 16 |
 | `--delay` | seconds between chunks (`d`) | 1.0 |
-| `--max-hold` | max retention per fetch, `T_max` (s) | 300 |
-| `--slots` | concurrent slots `N` (HTTP 503 when full) | 50 |
+| `--max-seg` | max seconds per cage, `T_max` | 300 |
+| `--max-jaulas` | concurrent slots `N` (HTTP 503 when full) | 50 |
 | `--host` / `--port` | bind address / port | `127.0.0.1` / 8080 |
 | `--log` | JSON Lines log path | `jaula.log` |
+
+### Server behavior notes
+
+- A request is sent into the maze if its path starts with `/jaula/` **or** its `User-Agent` matches a list of known AI-crawler and scripting-client patterns (`AI_UA`). The latter receive the `/jaula/inicio` page whatever path they asked for. This also catches legitimate scripting clients such as `python-requests` or `python-httpx`.
+- Page text is deterministic per path; the canary token is salted with a value generated at every server start.
+- The server announces itself as `nginx/1.24.0` (basic camouflage).
+- Only maze visits are logged (`ts`, `ip`, `ua`, `ruta`, `segundos`, `bytes`). `robots.txt`, the decoy root page, and HTTP 503 responses are not.
+- Identifiers, log keys, and flags are in Spanish (`jaula` = cage, `max-seg` = max seconds, `max-jaulas` = max cages) and kept unchanged for reproducibility.
 
 ## The model in one minute
 
@@ -98,16 +106,22 @@ Pending predictions (S = 3,760 B, t_LLM = 82.2 s, n = 3, m = 6) — **not measur
 ```
 ai-pain-cage/
 ├── src/
-│   ├── jaula_dolor.py     # tarpit server
-│   ├── test_agent.py      # Ollama agent + measurement harness
-│   └── pain_model.py      # analytical model + Erlang-B
-├── tests/test_model.py    # unit tests (paper predictions, determinism)
+│   ├── jaula_dolor.py     # tarpit server (original experiment source)
+│   ├── test_agent.py      # Ollama agent + harness (original v2 + local-only guard)
+│   └── pain_model.py      # analytical model + Erlang-B (reference implementation)
+├── tests/test_model.py    # unit tests (paper predictions, server behavior)
 ├── paper/paper.md         # full article
 ├── data/                  # observed runs + log schema
 ├── ETHICS.md              # intended use and boundaries
 ├── CITATION.cff
 └── LICENSE
 ```
+
+## Provenance of the code
+
+- `src/jaula_dolor.py` is the server used in the experiments. Only comments, the module docstring, and CLI help/console messages were translated to English; behavior and generated pages are unchanged (the start page `/jaula/inicio` is 3,936 bytes, the size received in Run 2).
+- `src/test_agent.py` is the v2 agent used in the experiments, plus one later addition: a guard that refuses to fetch any host other than `127.0.0.1`/`localhost`.
+- `src/pain_model.py` is a reference implementation of the paper's equations, written after the experiments and checked against the paper's tables by the unit tests.
 
 ## Limitations
 

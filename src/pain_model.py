@@ -2,6 +2,8 @@
 """
 pain_model.py - analytical model for the AI Pain Cage (paper/paper.md, Secs. 6-8).
 
+Reference implementation of the equations in the paper, written after the experiments
+and checked against the paper's tables by tests/test_model.py.
 All functions are pure and dependency-free so they can be unit-tested.
 """
 import argparse

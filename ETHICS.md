@@ -16,15 +16,15 @@ The AI Pain Cage is a **controlled research prototype for defensive research**. 
 
 ## Safe defaults
 
-- The server binds to `127.0.0.1`; it warns loudly if you bind elsewhere.
+- The server binds to `127.0.0.1` by default; exposing it on other interfaces is your responsibility.
 - The test agent refuses to fetch any host other than 127.0.0.1 or localhost (guard added after the experiments reported in the paper).
-- The server caps concurrent slots (`--slots`) and per-fetch retention (`--max-hold`).
+- The server caps concurrent cages (`--max-jaulas`) and per-fetch retention (`--max-seg`).
 
 ## Before any network-facing deployment
 
 1. Security review of the implementation.
 2. Resource limits and monitoring (CPU, memory, sockets, file descriptors).
-3. A way to protect legitimate traffic, and a normal-client control to quantify collateral delay.
+3. A way to protect legitimate traffic, and a normal-client control to quantify collateral delay. Note that user-agent routing also catches legitimate scripting clients (`python-requests`, `python-httpx`).
 4. Legal and policy review for your jurisdiction and hosting provider.
 
 ## Reporting issues

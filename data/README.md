@@ -4,14 +4,13 @@
 
 ## Server log schema (`jaula.log`, JSON Lines)
 
+One line per cage visit (requests to `robots.txt`, the decoy root page, and HTTP 503 responses are not logged). Keys are in Spanish, as emitted by the server.
+
 | Field | Meaning |
 |---|---|
-| `ts` | UTC timestamp |
-| `client` | client IP |
-| `path` | requested path |
-| `ua` / `ua_automated` | user-agent and a weak automated-client hint |
-| `status` | `ok`, `max_hold`, `client_abort`, `busy_503`, `robots`, `root`, `not_found` |
-| `bytes_delivered` / `body_size` | bytes sent vs full page size |
-| `elapsed_s` | time the slot was held |
-| `completed` | whether the full page was streamed |
-
+| `ts` | local timestamp (`%Y-%m-%dT%H:%M:%S`) |
+| `ip` | client IP |
+| `ua` | client `User-Agent` |
+| `ruta` | requested path |
+| `segundos` | seconds the connection was held |
+| `bytes` | bytes delivered |
