@@ -51,7 +51,7 @@ python3 src/jaula_dolor.py --port 8080
 python3 src/jaula_dolor.py --port 8080 --delay 0.1 --chunk 128
 
 # 2. In another terminal, run the instrumented agent
-python3 src/test_agent.py --min-fetches 3 --budget 60 --out run.json
+python3 src/test_agent.py --min-fetches 3 --budget 60
 
 # 3. Explore the analytical model (12 arrivals/min reproduces the 47-Erlang example in §8)
 python3 src/pain_model.py --size 3760 --fetches 3 --slots 50 --rate 12
