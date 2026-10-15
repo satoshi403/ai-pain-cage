@@ -59,7 +59,7 @@ I formulated four hypotheses.
 For a response of size $S$, delivered in chunks of $c$ bytes with a delay $d$ between chunks, the fetch duration can be approximated by:
 
 $$
-t_f = \min\left( \left\lceil \frac{S}{c} \right\rceil d,\; B,\; T_{\max} \right)
+t_f = \min\left( \left\lceil \frac{S}{c} \right\rceil d, B, T_{\max} \right)
 $$
 
 where $B$ is the client's per-fetch time budget and $T_{\max}$ is the server's maximum retention time.
@@ -227,13 +227,13 @@ $$
 For $c = 16$ bytes and $d = 1$ second:
 
 $$
-r = 16\ \text{B/s}
+r = 16\text{ B/s}
 $$
 
 For $c = 128$ bytes and $d = 0.1$ seconds:
 
 $$
-r = 1{,}280\ \text{B/s}
+r = 1{,}280\text{ B/s}
 $$
 
 These are nominal rates, not guarantees of actual TCP throughput.
@@ -247,7 +247,7 @@ t_{\mathrm{drip}} = \left\lceil \frac{S}{c} \right\rceil d
 $$
 
 $$
-t_f = \min\left(t_{\mathrm{drip}},\; B,\; T_{\max}\right)
+t_f = \min\left(t_{\mathrm{drip}}, B, T_{\max}\right)
 $$
 
 The model predicts that a fetch ends when the page finishes streaming, the client times out, or the server reaches its maximum retention limit.
@@ -257,7 +257,7 @@ The model predicts that a fetch ends when the page finishes streaming, the clien
 A first approximation for the number of bytes received is:
 
 $$
-b_f = \min\left( S,\; c \left( \left\lfloor \frac{t_f}{d} \right\rfloor + 1 \right) \right)
+b_f = \min\left( S, c \left( \left\lfloor \frac{t_f}{d} \right\rfloor + 1 \right) \right)
 $$
 
 The additional chunk accounts for the assumption that the first chunk arrives at $t = 0$.
@@ -269,7 +269,7 @@ This equation requires careful interpretation. It is valid only under the assume
 For $n$ fetches:
 
 $$
-T_{\mathrm{cage}} = n\, t_f
+T_{\mathrm{cage}} = n \cdot t_f
 $$
 
 This assumes every fetch has the same duration. If pages have different sizes, use:
@@ -292,7 +292,7 @@ Let:
 Then:
 
 $$
-T_{\mathrm{total}} \approx T_{\mathrm{cage}} + m\, t_{\mathrm{LLM}}
+T_{\mathrm{total}} \approx T_{\mathrm{cage}} + m \cdot t_{\mathrm{LLM}}
 $$
 
 In the observed version 2 run, six model calls took approximately 82 seconds each on average.
@@ -304,7 +304,7 @@ This is an empirical approximation, not a universal performance law. Model calls
 Define the slowdown factor relative to inference-only execution as:
 
 $$
-\sigma = \frac{T_{\mathrm{total}}}{m\, t_{\mathrm{LLM}}}
+\sigma = \frac{T_{\mathrm{total}}}{m \cdot t_{\mathrm{LLM}}}
 $$
 
 The fraction of total time spent in the cage is:
@@ -316,10 +316,10 @@ $$
 For Run 3:
 
 $$
-\eta = \frac{8.9}{502.3} \approx 1.77\%
+\eta = \frac{8.9}{502.3} \approx 0.0177
 $$
 
-The observed cage time was therefore a small fraction of total execution time in the fast configuration.
+That is about 1.77%, so the observed cage time was a small fraction of total execution time in the fast configuration.
 
 ## 7. Model validation and pending predictions
 
@@ -372,7 +372,7 @@ B(E, 0) = 1
 $$
 
 $$
-B(E, m) = \frac{E\, B(E, m-1)}{m + E\, B(E, m-1)}
+B(E, m) = \frac{E \cdot B(E, m-1)}{m + E \cdot B(E, m-1)}
 $$
 
 The probability of blocking is $B(E, N)$.
