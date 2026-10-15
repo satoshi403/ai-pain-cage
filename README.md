@@ -2,11 +2,11 @@
 
 **An experimental tarpit and performance model for studying the cost of autonomous AI agents crawling a web server.**
 
-[![tests](https://github.com/satoshi443/ai-pain-cage/actions/workflows/tests.yml/badge.svg)](https://github.com/satoshi443/ai-pain-cage/actions/workflows/tests.yml)
+[![tests](https://github.com/satoshi403/ai-pain-cage/actions/workflows/tests.yml/badge.svg)](https://github.com/satoshi403/ai-pain-cage/actions/workflows/tests.yml)
 [![license: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![status: preliminary](https://img.shields.io/badge/status-preliminary-orange.svg)](#limitations)
 
-By **Fredy Bahena Martínez** · [Kynicom System](https://github.com/satoshi443) · October 2026
+By **Fredy Bahena Martínez** · [Kynicom System](https://github.com/satoshi403) · October 2026
 
 > **Research prototype.** Results are preliminary (one run per configuration, local loopback, one small model).
 > Read the [limitations](#limitations) and [ETHICS.md](ETHICS.md) before running or deploying anything.
@@ -41,7 +41,7 @@ Predictions for slow-mode scenarios B and C and for the Erlang-B capacity model 
 Requirements: Python 3.9+ (standard library only) and, for the agent, [Ollama](https://ollama.com) with a model pulled (`ollama pull llama3.2:3b`).
 
 ```bash
-git clone https://github.com/satoshi443/ai-pain-cage.git
+git clone https://github.com/satoshi403/ai-pain-cage.git
 cd ai-pain-cage
 
 # 1. Start the cage (slow mode: 16 B every 1 s). Binds to 127.0.0.1 by default.
@@ -140,7 +140,7 @@ See [CITATION.cff](CITATION.cff), or:
 
 ```
 Bahena Martínez, F. (2026). The AI Pain Cage: Designing and Modeling a Tarpit for
-Autonomous Agents. Kynicom System. https://github.com/satoshi443/ai-pain-cage
+Autonomous Agents. Kynicom System. https://github.com/satoshi403/ai-pain-cage
 ```
 
 ## License
