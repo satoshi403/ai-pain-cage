@@ -19,7 +19,7 @@ Autonomous AI agents can traverse websites, call tools, and consume resources at
 
 The server generates a deterministic maze of synthetic pages, linked together and streamed in small chunks with a configurable delay. A local agent (Ollama + `fetch_url` tool) explores it, and a small analytical model predicts fetch time, total runtime, and capacity.
 
-Full write-up: **[paper/paper.md](paper/paper.md)**
+Full write-up: **[paper/paper.md](paper/paper.md)** · Medium article: [I Built a Tarpit for AI Agents](https://medium.com/@fkap91/i-built-a-tarpit-for-ai-agents-heres-what-one-small-experiment-showed-b9e3ff728299)
 
 ## Key observations (preliminary)
 
