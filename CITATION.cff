@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "The AI Pain Cage: Designing and Modeling a Tarpit for Autonomous Agents"
+type: software
+authors:
+  - family-names: "Bahena Martínez"
+    given-names: "Fredy"
+    affiliation: "Kynicom System"
+date-released: 2026-10-15
+license: MIT
+repository-code: "https://github.com/satoshi443/ai-pain-cage"
+keywords:
+  - AI agent security
+  - tarpit
+  - web crawling
+  - defensive security
+  - performance modeling

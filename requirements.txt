@@ -1,0 +1,2 @@
+# No third-party Python dependencies (standard library only).
+# Optional runtime for the agent: Ollama (https://ollama.com) with `ollama pull llama3.2:3b`.
