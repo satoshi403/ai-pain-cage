@@ -6,6 +6,7 @@ authors:
   - family-names: "Bahena Martínez"
     given-names: "Fredy"
     affiliation: "Kynicom System"
+version: 0.1.0
 date-released: 2026-10-15
 license: MIT
 repository-code: "https://github.com/satoshi403/ai-pain-cage"
