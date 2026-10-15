@@ -17,7 +17,7 @@ The AI Pain Cage is a **controlled research prototype for defensive research**. 
 ## Safe defaults
 
 - The server binds to `127.0.0.1`; it warns loudly if you bind elsewhere.
-- The test agent contacts only the configured `--target` base URL and ignores hosts in model-supplied URLs.
+- The test agent refuses to fetch any host other than 127.0.0.1 or localhost (guard added after the experiments reported in the paper).
 - The server caps concurrent slots (`--slots`) and per-fetch retention (`--max-hold`).
 
 ## Before any network-facing deployment

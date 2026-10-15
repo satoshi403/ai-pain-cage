@@ -38,7 +38,7 @@ Predictions for slow-mode scenarios B and C and for the Erlang-B capacity model 
 
 ## Quick start
 
-Requirements: Python 3.9+ (standard library only) and, for the agent, [Ollama](https://ollama.com) with a model pulled (`ollama pull llama3.2:3b`).
+Requirements: Python 3.9+ (server and model: standard library only; agent: `requests`) and, for the agent, [Ollama](https://ollama.com) with a model pulled (`ollama pull llama3.2:3b`).
 
 ```bash
 git clone https://github.com/satoshi403/ai-pain-cage.git
@@ -124,7 +124,7 @@ ai-pain-cage/
 - [ ] Exp. 1 — Validate slow-mode predictions (B, C) within 5%
 - [ ] Exp. 2 — Baseline against a normal, undelayed endpoint
 - [ ] Exp. 3 — ≥5 runs per configuration with mean, SD, and CIs
-- [ ] Exp. 4 — Record `prompt_eval_count` / `eval_count` per call (already captured by `test_agent.py`)
+- [ ] Exp. 4 — Record `prompt_eval_count` / `eval_count` per call
 - [ ] Exp. 5 — Compare agents (`qwen2.5:7b`, explicit global deadline)
 - [ ] Exp. 6 — Measure defender CPU / RSS / sockets under concurrency
 - [ ] Exp. 7 — Validate Erlang-B under smooth and bursty arrivals

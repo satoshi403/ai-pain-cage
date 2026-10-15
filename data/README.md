@@ -15,4 +15,3 @@
 | `elapsed_s` | time the slot was held |
 | `completed` | whether the full page was streamed |
 
-Agent summaries (`--out run.json`) include per-fetch timing, bytes, model calls, `prompt_eval_count` / `eval_count`, requested-but-never-seen URLs, and cited-but-not-visited URLs.
